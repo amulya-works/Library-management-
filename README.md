@@ -186,14 +186,6 @@ This project is developed for educational purposes.
 * Secure password and database configuration.
 * Deployment to a cloud server.
 
-## 👩‍💻 Author
-
-**Amulya**
-**PAVAN**
-**NAZIA**
-
-B.Tech Computer Science Engineering Students
-
 ## 📄 License
 
 This project is intended for educational and academic purposes.
