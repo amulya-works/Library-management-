@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <p class="menu-label">MAIN MENU</p>
+        <nav>
+            <button class="nav-item active" data-page="dashboard">▦ <span>Dashboard</span></button>
+            <button class="nav-item" data-page="books">▤ <span>Book Catalog</span></button>
+            <button class="nav-item" data-page="add-book">＋ <span>Add New Book</span></button>
+            <button class="nav-item" data-page="update-book">✎ <span>Update Book</span></button>
+            <button class="nav-item" data-page="borrowings">⇄ <span>Borrowing Tracker</span></button>
+            <button class="nav-item" data-page="reviews">☆ <span>Ratings & Reviews</span></button>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">Library Management System</p>
+                <h1 id="page-title">Library Management Dashboard</h1>
+            </div>
+        </header>
+
+        <section class="page active" id="dashboard">
+            <div class="welcome">
+                <p class="eyebrow">LIBRARY OVERVIEW</p>
+                <h2>Welcome to the Library Management System</h2>
+                <p>Manage books, borrowings, members and reviews in one place.</p>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card books-card">
+                    <div class="stat-top">
+                        <span>Total Books</span>
+                        <span class="stat-icon">▤</span>
+                    </div>
+                    <h2 id="total-books">125</h2>
+                    <p>Books in the catalog</p>
+                </article>
+
+                <article class="stat-card borrowings-card">
+                    <div class="stat-top">
+                        <span>Active Borrowings</span>
+                        <span class="stat-icon">⇄</span>
+                    </div>
+                    <h2 id="active-borrowings">—</h2>
+                    <p>Books not yet returned</p>
+                </article>
+
+                <article class="stat-card ratings-card">
+                    <div class="stat-top">
+                        <span>Total Ratings</span>
+                        <span class="stat-icon">☆</span>
+                    </div>
+                    <h2 id="total-ratings">45</h2>
+                    <p>Ratings submitted</p>
+                </article>
+
+                <article class="stat-card members-card">
+                    <div class="stat-top">
+                        <span> Total Members</span>
+                        <span class="stat-icon">♙</span>
+                    </div>
+                    <h2 id="total-members">100</h2>
+                    <p>Registered members</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="page" id="books">
+            <div class="content-card">
+                <div class="card-heading">
+                    <div>
+                        <h3>Book Catalog</h3>
+                        <p>View, search, edit and delete books.</p>
+                    </div>
+                    <button class="primary-button" data-page="add-book">+ Add Book</button>
+                </div>
+
+                <div class="toolbar">
+                    <input type="search" id="book-search" placeholder="Search by book title or ISBN...">
+                    <button class="secondary-button" id="search-books">Search</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>BOOK ID</th>
+                                <th>BOOK TITLE</th>
+                                <th>ISBN</th>
+                                <th>PUBLISHER ID</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="books-table">
+                            <tr><td colspan="5" class="empty">Book records will appear here.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="page" id="add-book">
+            <div class="content-card form-card">
+                <div class="card-heading">
+                    <div>
+                        <h3>Add a New Book</h3>
+                        <p>Enter the details of the book.</p>
+                    </div>
+                </div>
+
+                <form id="add-book-form">
+                    <label>Book ID
+                        <input type="number" id="book-id" required min="1">
+                    </label>
+
+                    <label>Book Title
+                        <input type="text" id="book-title" required maxlength="250" placeholder="Enter book title">
+                    </label>
+
+                    <label>ISBN
+                        <input type="text" id="book-isbn" required placeholder="Enter ISBN">
+                    </label>
+
+                    <label>Publisher ID
+                        <input type="number" id="publisher-id" required min="1" placeholder="Enter Publisher ID">
+                    </label>
+
+                    <button type="submit" class="primary-button">Add Book</button>
+                    <p id="book-form-message" role="status"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="page" id="update-book">
+            <div class="content-card form-card">
+                <div class="card-heading">
+                    <div>
+                        <h3>Update Book Name</h3>
+                        <p>Change the title of an existing book.</p>
+                    </div>
+                </div>
+
+                <form id="update-book-form">
+                    <label>Book ID
+                        <input type="number" id="update-book-id" required min="1" placeholder="Enter Book ID">
+                    </label>
+
+                    <label>New Book Title
+                        <input type="text" id="update-book-title" required maxlength="250" placeholder="Enter new book title">
+                    </label>
+
+                    <button type="submit" class="primary-button">Update Book</button>
+                    <p id="update-book-message" role="status"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="page" id="borrowings">
+    <div class="content-card">
+        <div class="card-heading">
+            <div>
+                <h3>Borrowing Records</h3>
+                <p>Track library borrowing records.</p>
+            </div>
+            <button class="primary-button" id="refresh-borrowings">Refresh Records</button>
+        </div>
+
+```
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Borrowing ID</th>
+                    <th>Member</th>
+                    <th>Book ID</th>
+                    <th>Book Title</th>
+                    <th>Librarian ID</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                    <th>Fine</th>
+                </tr>
+            </thead>
+            <tbody id="borrowings-table">
+                <tr>
+                    <td colspan="10" class="empty">Open Borrowing Tracker to load records.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+```
+
+</section>
+
+
+        <section class="page" id="reviews">
+    <div class="content-card">
+        <div class="card-heading">
+            <div>
+                <h3>Ratings & Reviews</h3>
+                <p>View ratings and feedback submitted by library members.</p>
+            </div>
+            <button class="primary-button" id="refresh-ratings">Refresh Ratings</button>
+        </div>
+
+```
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rating ID</th>
+                    <th>Member ID</th>
+                    <th>Member Name</th>
+                    <th>Librarian ID</th>
+                    <th>Rating</th>
+                    <th>Review</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="ratings-table">
+                <tr>
+                    <td colspan="7" class="empty">Open Ratings & Reviews to load ratings.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
